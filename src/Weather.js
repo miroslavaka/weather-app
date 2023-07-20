@@ -6,11 +6,12 @@ import { InfinitySpin } from 'react-loader-spinner';
 const Weather = () => {
   const [city, setCity] = useState('Bratislava');
   const [loaded, setLoaded] = useState(false);
-  const [result, setResult] = useState({
+  const [data, setData] = useState({
     temperature: null,
     description: null,
     humidity: null,
     wind: null,
+    country: null,
     icon: null,
   });
 
@@ -35,11 +36,12 @@ const Weather = () => {
   function getResponse(response) {
     console.log(response);
     setLoaded(true);
-    setResult({
+    setData({
       temperature: response.data.main.temp,
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
+      country: response.data.sys.country,
     });
   }
 
@@ -66,12 +68,20 @@ const Weather = () => {
           />
           <input type="submit" value="Search" />
         </form>
-        <div>
-          <h1>{city}</h1>
-          <p>
-            {currentDay}, {currentTime}{' '}
-          </p>
-          <p></p>
+        <div className="overview">
+          <div className="result">
+            <h1>
+              {city},{data.country}
+            </h1>
+            <p>
+              {currentDay}, {currentTime}{' '}
+            </p>
+            <p>{data.description}</p>
+          </div>
+          <div>
+            <h2>{data.temperature}°C</h2>
+            <p>Humidity: {data.humidity}%</p>
+          </div>
         </div>
       </div>
     );
@@ -87,13 +97,17 @@ const Weather = () => {
           />
           <input type="submit" value="Search" />
         </form>
-        <div>
-          <h1>{city}</h1>
-          <div>
+        <div className="overview">
+          <div className="result">
+            <h1>{city}, SK</h1>
             <p>
-              {currentDay} {currentTime}
+              {currentDay}, {currentTime}{' '}
             </p>
-            <p></p>
+            <p>{data.description}</p>
+          </div>
+          <div>
+            <h2>27°C</h2>
+            <p>Humidity: 35%</p>
           </div>
         </div>
         {/* <InfinitySpin width="180" color="#eee" /> */}
