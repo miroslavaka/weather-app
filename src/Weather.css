@@ -1,0 +1,62 @@
+:root {
+  --main-color: #fefefe;
+}
+
+.Weather {
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.title {
+  margin: 3rem 0;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.city,
+.temp {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+p,
+li {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.7rem;
+}
+.list {
+  padding: 0;
+  position: relative;
+  top: -55px;
+  left: 75px;
+}
+.list li {
+  list-style-type: none;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.search,
+.submit {
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+  border: 1px solid var(--white-color);
+  border-radius: 5px;
+  padding: 0.7rem 2rem;
+  color: #939192;
+}
+.search {
+  margin-right: 1rem;
+}
+.left {
+  margin: 4rem 3.5rem 1rem 0;
+}
+.right {
+  margin: 4rem 0 1rem 0;
+}
+.submit {
+  cursor: pointer;
+
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}

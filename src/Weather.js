@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { days } from './days.js';
-import { InfinitySpin } from 'react-loader-spinner';
+import img from './img/sun.png';
+import './Weather.css';
 
 const Weather = () => {
-  const [city, setCity] = useState('Bratislava');
+  const [city, setCity] = useState('');
   const [loaded, setLoaded] = useState(false);
   const [data, setData] = useState({
     temperature: null,
     description: null,
     humidity: null,
     wind: null,
+    name: null,
     country: null,
     icon: null,
   });
@@ -42,11 +44,13 @@ const Weather = () => {
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       country: response.data.sys.country,
+      name: response.data.name,
+      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
   }
 
   function handleChange(event) {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     setCity(event.target.value);
   }
 
@@ -58,59 +62,86 @@ const Weather = () => {
 
   if (loaded) {
     return (
-      <div>
+      <div className="Weather container">
         <form onSubmit={handleSubmit}>
-          <input
-            type="search"
-            placeholder="Search city"
-            onChange={handleChange}
-            value={city}
-          />
-          <input type="submit" value="Search" />
+          <div className="row">
+            <div className="col-8">
+              <input
+                type="text"
+                className="search"
+                placeholder="Search city"
+                onChange={handleChange}
+                value={city}
+                autoComplete="on"
+              />
+            </div>
+            <div className="col-4">
+              <input type="submit" className="submit" value="Search" />
+            </div>
+          </div>
         </form>
-        <div className="overview">
-          <div className="result">
-            <h1>
-              {city},{data.country}
-            </h1>
+        <div className="row row-cols-md-2 row-cols-sm-1">
+          <div className="col left">
+            <h2 className="city">
+              {data.name},{data.country}
+            </h2>
             <p>
               {currentDay}, {currentTime}{' '}
             </p>
             <p>{data.description}</p>
           </div>
-          <div>
-            <h2>{data.temperature}°C</h2>
-            <p>Humidity: {data.humidity}%</p>
+          <div className="col right">
+            <div className="row">
+              <img src={data.icon} alt={data.description} width="100" />
+              <h2 className="temp">{data.temperature}°C</h2>
+            </div>
+            <ul className="list">
+              <li>Humidity: {data.humidity}%</li>
+              <li>Wind: {data.wind}km/h</li>
+            </ul>
           </div>
         </div>
       </div>
     );
   } else {
     return (
-      <div>
+      <div className="Weather container">
         <form onSubmit={handleSubmit}>
-          <input
-            type="search"
-            placeholder="Search city"
-            onChange={handleChange}
-            value={city}
-          />
-          <input type="submit" value="Search" />
+          <div className="row">
+            <div className="col-8">
+              <input
+                type="text"
+                className="search"
+                placeholder="Search city"
+                onChange={handleChange}
+                value={city}
+                autoComplete="on"
+              />
+            </div>
+            <div className="col-4">
+              <input type="submit" className="submit" value="Search" />
+            </div>
+          </div>
         </form>
-        <div className="overview">
-          <div className="result">
-            <h1>{city}, SK</h1>
+        <div className="row row-cols-md-2 row-cols-sm-1">
+          <div className="col left">
+            <h2 className="city">Bratislava, SK</h2>
             <p>
               {currentDay}, {currentTime}{' '}
             </p>
             <p>{data.description}</p>
           </div>
-          <div>
-            <h2>27°C</h2>
-            <p>Humidity: 35%</p>
+          <div className="col right">
+            <div className="row">
+              <img src={img} alt="sun" width="100" />
+              <h2 className="temp">27°C</h2>
+            </div>
+            <ul className="list">
+              <li>Humidity: 35%</li>
+              <li>Wind: 15km/h</li>
+            </ul>
           </div>
         </div>
-        {/* <InfinitySpin width="180" color="#eee" /> */}
       </div>
     );
   }
