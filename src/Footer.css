@@ -1,0 +1,14 @@
+.footer-text {
+  font-size: 1.2rem;
+}
+.link {
+  color: #939192;
+  text-decoration: none;
+}
+.link:hover {
+  color: rgba(150, 50, 50, 0.3);
+}
+
+.link:visited {
+  color: #939192;
+}

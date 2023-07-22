@@ -1,4 +1,5 @@
 import Weather from './Weather';
+import Footer from './Footer';
 import './App.css';
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
       <div className="App-container">
         <h1 className="title">Weather Forecast</h1>
         <Weather />
+        <Footer />
       </div>
     </div>
   );
