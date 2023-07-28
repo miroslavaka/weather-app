@@ -1,5 +1,4 @@
 import Weather from './Weather';
-import Footer from './Footer';
 import './App.css';
 
 function App() {
@@ -7,8 +6,26 @@ function App() {
     <div className="App">
       <div className="App-container">
         <h1 className="title">Weather Forecast</h1>
-        <Weather />
-        <Footer />
+        <Weather defaultCity="Bratislava" />
+        <footer>
+          <p className="footer-text">
+            <a
+              href="https://github.com/miroslavaka/weather-app"
+              target="_blank"
+              className="link"
+            >
+              Open-source on GitHub
+            </a>{' '}
+            coded by{' '}
+            <a
+              href="https://mira-codes.netlify.app/"
+              target="_blank"
+              className="link"
+            >
+              Miroslava
+            </a>
+          </p>
+        </footer>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
-:root {
+/* :root {
   --main-color: #fefefe;
-}
+} */
 html {
   box-sizing: border-box;
 }
@@ -13,10 +13,10 @@ body {
   margin: 0;
   padding: 0;
 }
-h1,
+/* h1,
 h2 {
   margin: 0;
-}
+} */
 .App {
   background: #eee;
   background: linear-gradient(0deg, rgba(0, 0, 200, 0.2), rgba(0, 0, 200, 0));
@@ -26,7 +26,7 @@ h2 {
   background: #eee;
   background: linear-gradient(
     240deg,
-    rgba(150, 50, 50, 0.3),
+    rgba(40, 144, 134, 0.3),
     rgba(0, 0, 200, 0)
   );
   min-height: 100vh;
@@ -34,5 +34,23 @@ h2 {
   flex-direction: column;
   align-items: center;
   /* justify-content: center; */
-  color: var(--main-color);
+  color: #939192;
+}
+.App .title {
+  margin: 3rem 0;
+  font-family: 'Quicksand', sans-serif;
+}
+.App .footer-text {
+  font-size: 1.2rem;
+}
+.App .link {
+  color: #939192;
+  text-decoration: none;
+}
+.App .link:hover {
+  color: rgba(150, 50, 50, 0.3);
+}
+
+.App .link:visited {
+  color: #939192;
 }

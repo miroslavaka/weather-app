@@ -80,7 +80,7 @@ const Weather = () => {
             </div>
           </div>
         </form>
-        <div className="row row-cols-md-2 row-cols-sm-1">
+        <div className="row">
           <div className="col left">
             <h2 className="city">
               {data.name},{data.country}
@@ -123,7 +123,7 @@ const Weather = () => {
             </div>
           </div>
         </form>
-        <div className="row row-cols-md-2 row-cols-sm-1">
+        <div className="row">
           <div className="col left">
             <h2 className="city">Bratislava, SK</h2>
             <p>
