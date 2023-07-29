@@ -19,6 +19,7 @@ const WeatherTemperature = (props) => {
       <div className="WeatherTemperature">
         <span className="temp">{props.celsius}</span>{' '}
         <span className="unit">
+          {' '}
           °C |{' '}
           <a href="/" onClick={showFahrenheit}>
             °F
@@ -30,10 +31,11 @@ const WeatherTemperature = (props) => {
     let fahrenheit = (props.celsius * 9) / 5 + 32;
     return (
       <div className="WeatherTemperature">
-        <span className="temp">{fahrenheit}</span>
+        <span className="temp">{fahrenheit}</span>{' '}
         <span className="unit">
+          {' '}
           <a href="/" onClick={showCelsius}>
-            °C
+            °C{' '}
           </a>{' '}
           | °F
         </span>
