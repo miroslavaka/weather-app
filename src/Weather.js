@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { days } from './days.js';
+import WeatherInfo from './WeatherInfo';
+
 import './Weather.css';
 
 const Weather = (props) => {
@@ -8,34 +9,26 @@ const Weather = (props) => {
   const [loaded, setLoaded] = useState(false);
   const [data, setData] = useState({});
 
-  //setting week day and date
-  const now = new Date();
-  let currentDay = days[now.getDay()];
-  console.log(currentDay);
-  let currentTime = now.toLocaleString('en-US', {
-    hour: 'numeric',
-    minute: 'numeric',
-    hour12: true,
-  });
-  console.log(currentTime);
+  // const now = new Date();
+  // let currentDay = days[now.getDay()];
+  // let currentTime = now.toLocaleString('en-US', {
+  //   hour: 'numeric',
+  //   minute: 'numeric',
+  //   hour12: true,
+  // });
 
-  //let currentDate = {
-  //   day: now.getDate(),
-  //   month: now.getMonth() + 1,
-  //   year: now.getFullYear(),
-  // };
-
-  //functions
   function getResponse(response) {
     console.log(response);
     setLoaded(true);
     setData({
+      name: response.data.name,
+      country: response.data.sys.country,
+      coordinates: response.data.coord,
       temperature: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
-      country: response.data.sys.country,
-      name: response.data.name,
+      date: new Date(response.data.dt * 1000),
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
   }
@@ -69,27 +62,7 @@ const Weather = (props) => {
             </div>
           </div>
         </form>
-        <div className="row">
-          <div className="col left">
-            <h2 className="city">
-              {data.name}, {data.country}
-            </h2>
-            <p>
-              {currentDay}, {currentTime}{' '}
-            </p>
-            <p>{data.description}</p>
-          </div>
-          <div className="col right">
-            <div className="row">
-              <img src={data.icon} alt={data.description} width="100" />
-              <h2 className="temp">{data.temperature}°C</h2>
-            </div>
-            <ul className="list">
-              <li>Humidity: {data.humidity}%</li>
-              <li>Wind: {data.wind}km/h</li>
-            </ul>
-          </div>
-        </div>
+        <WeatherInfo weatherData={data} />
       </div>
     );
   } else {
