@@ -9,14 +9,6 @@ const Weather = (props) => {
   const [loaded, setLoaded] = useState(false);
   const [data, setData] = useState({});
 
-  // const now = new Date();
-  // let currentDay = days[now.getDay()];
-  // let currentTime = now.toLocaleString('en-US', {
-  //   hour: 'numeric',
-  //   minute: 'numeric',
-  //   hour12: true,
-  // });
-
   function getResponse(response) {
     console.log(response);
     setLoaded(true);
@@ -27,9 +19,10 @@ const Weather = (props) => {
       temperature: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
-      wind: response.data.wind.speed,
+      wind: Math.round(response.data.wind.speed),
       date: new Date(response.data.dt * 1000),
-      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      icon_url: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      icon: response.data.weather[0].icon,
     });
   }
 

@@ -13,15 +13,10 @@ body {
   margin: 0;
   padding: 0;
 }
-/* h1,
-h2 {
-  margin: 0;
-} */
 .App {
   background: #eee;
   background: linear-gradient(0deg, rgba(0, 0, 200, 0.2), rgba(0, 0, 200, 0));
 }
-
 .App-container {
   background: #eee;
   background: linear-gradient(
@@ -33,24 +28,26 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
   color: #939192;
 }
 .App .title {
   margin: 3rem 0;
   font-family: 'Quicksand', sans-serif;
 }
+.App .footer {
+  margin-top: 1.5rem;
+}
 .App .footer-text {
   font-size: 1.2rem;
 }
 .App .link {
-  color: #939192;
+  color: #fefefe;
   text-decoration: none;
 }
 .App .link:hover {
-  color: rgba(150, 50, 50, 0.3);
+  color: #289086;
 }
 
 .App .link:visited {
-  color: #939192;
+  color: #fefefe;
 }

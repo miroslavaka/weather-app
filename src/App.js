@@ -7,7 +7,7 @@ function App() {
       <div className="App-container">
         <h1 className="title">Weather Forecast</h1>
         <Weather defaultCity="Bratislava" />
-        <footer>
+        <footer className="footer">
           <p className="footer-text">
             <a
               href="https://github.com/miroslavaka/weather-app"
