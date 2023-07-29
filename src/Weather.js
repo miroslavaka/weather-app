@@ -1,21 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { days } from './days.js';
-import img from './img/sun.png';
 import './Weather.css';
 
-const Weather = () => {
-  const [city, setCity] = useState('');
+const Weather = (props) => {
+  const [city, setCity] = useState(props.defaultCity);
   const [loaded, setLoaded] = useState(false);
-  const [data, setData] = useState({
-    temperature: null,
-    description: null,
-    humidity: null,
-    wind: null,
-    name: null,
-    country: null,
-    icon: null,
-  });
+  const [data, setData] = useState({});
 
   //setting week day and date
   const now = new Date();
@@ -39,7 +30,7 @@ const Weather = () => {
     console.log(response);
     setLoaded(true);
     setData({
-      temperature: response.data.main.temp,
+      temperature: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
@@ -50,7 +41,6 @@ const Weather = () => {
   }
 
   function handleChange(event) {
-    // console.log(event.target.value);
     setCity(event.target.value);
   }
 
@@ -69,9 +59,8 @@ const Weather = () => {
               <input
                 type="text"
                 className="search"
-                placeholder="Search city"
+                placeholder="Enter city"
                 onChange={handleChange}
-                value={city}
                 autoComplete="on"
               />
             </div>
@@ -83,7 +72,7 @@ const Weather = () => {
         <div className="row">
           <div className="col left">
             <h2 className="city">
-              {data.name},{data.country}
+              {data.name}, {data.country}
             </h2>
             <p>
               {currentDay}, {currentTime}{' '}
@@ -104,46 +93,9 @@ const Weather = () => {
       </div>
     );
   } else {
-    return (
-      <div className="Weather container">
-        <form onSubmit={handleSubmit}>
-          <div className="row">
-            <div className="col-8">
-              <input
-                type="text"
-                className="search"
-                placeholder="Search city"
-                onChange={handleChange}
-                value={city}
-                autoComplete="on"
-              />
-            </div>
-            <div className="col-4">
-              <input type="submit" className="submit" value="Search" />
-            </div>
-          </div>
-        </form>
-        <div className="row">
-          <div className="col left">
-            <h2 className="city">Bratislava, SK</h2>
-            <p>
-              {currentDay}, {currentTime}{' '}
-            </p>
-            <p>{data.description}</p>
-          </div>
-          <div className="col right">
-            <div className="row">
-              <img src={img} alt="sun" width="100" />
-              <h2 className="temp">27°C</h2>
-            </div>
-            <ul className="list">
-              <li>Humidity: 35%</li>
-              <li>Wind: 15km/h</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    );
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=5354b60afda2b7800186c06153932396&units=metric`;
+    axios.get(apiUrl).then(getResponse);
+    return 'Loading...';
   }
 };
 
