@@ -24,6 +24,18 @@ body {
     rgba(40, 144, 134, 0.3),
     rgba(0, 0, 200, 0)
   );
+  /* background: linear-gradient(
+    90deg,
+    hsla(141, 54%, 86%, 1) 0%,
+    hsla(211, 58%, 79%, 1) 100%
+  ); */
+
+  /* background: linear-gradient(
+    90deg,
+    hsla(18, 76%, 85%, 1) 0%,
+    hsla(203, 69%, 84%, 1) 100%
+  ); */
+
   min-height: 100vh;
   display: flex;
   flex-direction: column;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import WeatherInfo from './WeatherInfo';
+import WeatherForecast from './WeatherForecast';
 
 import './Weather.css';
 
@@ -32,7 +33,7 @@ const Weather = (props) => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=5354b60afda2b7800186c06153932396&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c8a77112b2faf6684bb4b21a0aa778ae&units=metric`;
     axios.get(apiUrl).then(getResponse);
   }
 
@@ -56,10 +57,11 @@ const Weather = (props) => {
           </div>
         </form>
         <WeatherInfo weatherData={data} />
+        <WeatherForecast coordinates={data.coordinates} />
       </div>
     );
   } else {
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=5354b60afda2b7800186c06153932396&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=c8a77112b2faf6684bb4b21a0aa778ae&units=metric`;
     axios.get(apiUrl).then(getResponse);
     return 'Loading...';
   }
