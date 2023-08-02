@@ -73,20 +73,18 @@
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 .Weather .left {
-  margin: 4rem 4rem 1rem 0;
+  margin: 3rem 4rem 1rem 0;
 }
 .Weather .right {
-  margin: 4rem 0 1rem 0;
+  margin: 3rem 0 1rem 0;
 }
 
 .Weather .unit {
   color: #939192;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 400;
-  /*position: relative;
-  top: -2px;
-  line-height: 1; */
 }
+
 @media screen and (max-width: 800px) {
   .Weather .information {
     display: flex;

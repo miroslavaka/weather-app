@@ -17,13 +17,14 @@ const WeatherForecast = (props) => {
     console.log('forecast: ', forecast);
     return (
       <div className="WeatherForecast">
+        <h5 className="title">5 Days Forecast</h5>
         <div className="row">
           {/* <WeatherForecastDay data={forecast.daily[0]} /> */}
           {forecast.daily.map((item, index) => {
             if (index < 5) {
               return (
                 <div className="col single-day" key={index}>
-                  <WeatherForecastDay data={item} />;
+                  <WeatherForecastDay data={item} />
                 </div>
               );
             }
@@ -32,7 +33,6 @@ const WeatherForecast = (props) => {
       </div>
     );
   } else {
-    //const apiKey = '5354b60afda2b7800186c06153932396';
     const longitude = props.coordinates.lon;
     const latitude = props.coordinates.lat;
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=c8a77112b2faf6684bb4b21a0aa778ae&units=metric`;
