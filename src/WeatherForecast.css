@@ -14,7 +14,7 @@
 }
 .WeatherForecast .single-day {
   margin: 1.5rem;
-  border: 1px solid #e0ffff;
+  border: 1.5px solid #e0ffff;
   padding: 0.5rem 1.3rem;
   border-radius: 5px;
 }

@@ -1,14 +1,13 @@
-/* :root {
-   --main-color: #fefefe; 
- 
-} */
-
+:root {
+  --main-font-color: #939192;
+  --white-font-color: #fefefe;
+}
 .Weather {
   font-family: 'Montserrat', sans-serif;
   max-width: 600px;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   background-color: hsla(0, 0%, 100%, 0.2);
-  border: 2px solid #efefef;
+  border: 2px solid var(--white-font-color);
   padding: 2rem 1rem 1rem 1rem;
   border-radius: 0.5rem;
 }
@@ -47,10 +46,10 @@
 .Weather .submit {
   font-family: 'Montserrat', sans-serif;
   outline: none;
-  border: 1px solid #939192;
+  border: 1px solid var(--main-font-color);
   border-radius: 5px;
   padding: 0.7rem 2rem;
-  color: #939192;
+  color: var(--main-font-color);
 }
 .Weather .search {
   margin-right: 1rem;
@@ -66,7 +65,7 @@
   margin: 3rem 0 1rem 0;
 }
 .Weather .unit {
-  color: #939192;
+  color: var(--main-font-color);
   font-size: 2rem;
   font-weight: 400;
 }

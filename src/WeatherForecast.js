@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import WeatherForecastDay from './WeatherForecastDay';
 import './WeatherForecast.css';
 import axios from 'axios';
@@ -7,8 +7,14 @@ const WeatherForecast = (props) => {
   const [loaded, setLoaded] = useState(false);
   const [forecast, setForecast] = useState(null);
 
+  //if coordinates change
+  //set loaded false
+  //useEffect triggers setLoaded(false) only if props.coordinates change
+  useEffect(() => {
+    setLoaded(false);
+  }, [props.coordinates]);
+
   function getData(response) {
-    console.log('weatherForecast: ', response.data);
     setForecast(response.data);
     setLoaded(true);
   }
@@ -19,9 +25,8 @@ const WeatherForecast = (props) => {
       <div className="WeatherForecast">
         <h5 className="title">5 Days Forecast</h5>
         <div className="row forecast">
-          {/* <WeatherForecastDay data={forecast.daily[0]} /> */}
           {forecast.daily.map((item, index) => {
-            if (index < 5) {
+            if (index > 0 && index < 6) {
               return (
                 <div className="col single-day" key={index}>
                   <WeatherForecastDay data={item} />
