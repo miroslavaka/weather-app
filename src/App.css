@@ -24,18 +24,6 @@ body {
     rgba(40, 144, 134, 0.3),
     rgba(0, 0, 200, 0)
   );
-  /* background: linear-gradient(
-    90deg,
-    hsla(141, 54%, 86%, 1) 0%,
-    hsla(211, 58%, 79%, 1) 100%
-  ); */
-
-  /* background: linear-gradient(
-    90deg,
-    hsla(18, 76%, 85%, 1) 0%,
-    hsla(203, 69%, 84%, 1) 100%
-  ); */
-
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -44,20 +32,17 @@ body {
 }
 .App .title-main {
   margin: 3rem 0;
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 .App .footer {
   margin-top: 1.5rem;
 }
 .App .footer-text {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
 }
 .App .link {
   color: #fefefe;
   text-decoration: none;
-}
-.App .link:hover {
-  color: #289086;
 }
 
 .App .link:visited {

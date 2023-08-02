@@ -21,7 +21,11 @@ const WeatherTemperature = (props) => {
         <span className="unit">
           {' '}
           °C |{' '}
-          <a href="/" onClick={showFahrenheit}>
+          <a
+            href="/"
+            onClick={showFahrenheit}
+            style={{ color: '#939192', opacity: '0.5' }}
+          >
             °F
           </a>
         </span>
@@ -34,7 +38,11 @@ const WeatherTemperature = (props) => {
         <span className="temp">{fahrenheit}</span>{' '}
         <span className="unit">
           {' '}
-          <a href="/" onClick={showCelsius}>
+          <a
+            href="/"
+            onClick={showCelsius}
+            style={{ color: '#939192', opacity: '0.5' }}
+          >
             °C{' '}
           </a>{' '}
           | °F
