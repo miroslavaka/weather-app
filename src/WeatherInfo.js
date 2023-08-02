@@ -4,7 +4,6 @@ import WeatherIcon from './WeatherIcon';
 import WeatherTemperature from './WeatherTemperature';
 
 const WeatherInfo = (props) => {
-  console.log('icon:', props.weatherData.icon);
   return (
     <div className="WeatherInfo">
       <div className="row information">

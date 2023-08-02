@@ -7,8 +7,6 @@ const WeatherForecast = (props) => {
   const [loaded, setLoaded] = useState(false);
   const [forecast, setForecast] = useState(null);
 
-  //if coordinates change
-  //set loaded false
   //useEffect triggers setLoaded(false) only if props.coordinates change
   //updated loading with new coordinates
 
@@ -22,7 +20,6 @@ const WeatherForecast = (props) => {
   }
 
   if (loaded) {
-    console.log('forecast: ', forecast);
     return (
       <div className="WeatherForecast">
         <h5 className="title">5 Days Forecast</h5>
@@ -34,6 +31,8 @@ const WeatherForecast = (props) => {
                   <WeatherForecastDay data={item} />
                 </div>
               );
+            } else {
+              return null;
             }
           })}
         </div>

@@ -2,7 +2,6 @@ import React from 'react';
 import ReactAnimatedWeather from 'react-animated-weather';
 
 const WeatherIcon = (props) => {
-  console.log('icon', props.code);
   const codeMapping = {
     '01d': 'CLEAR_DAY',
     '01n': 'CLEAR_NIGHT',

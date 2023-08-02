@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 const WeatherTemperature = (props) => {
-  console.log('celsius: ', props.celsius);
   const [unit, setUnit] = useState('celsius');
 
   function showFahrenheit(event) {
@@ -32,7 +31,7 @@ const WeatherTemperature = (props) => {
       </div>
     );
   } else {
-    let fahrenheit = (props.celsius * 9) / 5 + 32;
+    let fahrenheit = Math.round((props.celsius * 9) / 5 + 32);
     return (
       <div className="WeatherTemperature">
         <span className="temp">{fahrenheit}</span>{' '}

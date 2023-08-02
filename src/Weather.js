@@ -11,7 +11,6 @@ const Weather = (props) => {
   const [data, setData] = useState({});
 
   function getResponse(response) {
-    console.log(response);
     setLoaded(true);
     setData({
       name: response.data.name,
