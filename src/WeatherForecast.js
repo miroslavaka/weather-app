@@ -10,6 +10,8 @@ const WeatherForecast = (props) => {
   //if coordinates change
   //set loaded false
   //useEffect triggers setLoaded(false) only if props.coordinates change
+  //updated loading with new coordinates
+
   useEffect(() => {
     setLoaded(false);
   }, [props.coordinates]);
