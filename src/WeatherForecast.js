@@ -18,7 +18,7 @@ const WeatherForecast = (props) => {
     return (
       <div className="WeatherForecast">
         <h5 className="title">5 Days Forecast</h5>
-        <div className="row">
+        <div className="row forecast">
           {/* <WeatherForecastDay data={forecast.daily[0]} /> */}
           {forecast.daily.map((item, index) => {
             if (index < 5) {
